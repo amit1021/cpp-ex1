@@ -6,8 +6,6 @@
 using namespace std;
 using namespace phonetic;
 
-int countCheck = 0;
-
 TEST_CASE("Test replacement of y and i && of o and u" )
 {
     string text = "dai lyke thys lead tu"; //day like this lead to
@@ -15,7 +13,7 @@ TEST_CASE("Test replacement of y and i && of o and u" )
     CHECK(find(text,"like") == string("lyke"));
     CHECK(find(text,"this") == string("thys"));
     CHECK(find(text,"to") == string("tu"));
-    countCheck += 4;
+
 }
 
 TEST_CASE("Test replacement of y and i && f and p" )
@@ -24,7 +22,6 @@ TEST_CASE("Test replacement of y and i && f and p" )
     CHECK(find(text,"people") == string("Feofole"));
     CHECK(find(text,"like") == string("lyke"));
     CHECK(find(text,"us") == string("uz"));
-    countCheck += 2;
 }
 
 TEST_CASE("Test replacement of d and t && b and p")
@@ -35,7 +32,7 @@ TEST_CASE("Test replacement of d and t && b and p")
     CHECK(find(text,"spark") == string("sbark"));
     CHECK(find(text,"bonfire") == string("ponfire"));
     CHECK(find(text,"heart") == string("heard"));
-    countCheck += 5;
+   
 }
 
 TEST_CASE("Test replacement of f and p and b && d and t && s and z" )
@@ -47,7 +44,6 @@ TEST_CASE("Test replacement of f and p and b && d and t && s and z" )
     CHECK(find(text,"to") == string("do"));
     CHECK(find(text,"attack") == string("addack"));
     CHECK(find(text,"now") == string("now"));
-    countCheck += 6;
 }
 
 TEST_CASE("Test replacement of o and u && of c and q && of y and i" )
@@ -60,7 +56,7 @@ TEST_CASE("Test replacement of o and u && of c and q && of y and i" )
     CHECK(find(text,"not") == string("not"));
     CHECK(find(text,"occurred") == string("uqqorred"));
     CHECK(find(text,"yet") == string("iet"));
-    countCheck += 7;
+
 }
 
 TEST_CASE("Test replacement lower case to uper case")
@@ -74,9 +70,6 @@ TEST_CASE("Test replacement lower case to uper case")
     CHECK(find(text,"things") == string("ThInGS"));
     CHECK(find(text,"for") == string("foR"));
     CHECK(find(text,"YoU") == string("YoU"));
-
-    //CHECK_THROWS_AS(find(text,"ABC"), exception);
-    countCheck += 8;
 }
 
 TEST_CASE("Test replacement of t and d && of g and j" )
@@ -84,7 +77,7 @@ TEST_CASE("Test replacement of t and d && of g and j" )
     string text = "jodda prodecd"; //And things that have not occurred yet
     CHECK(find(text,"Gotta") == string("jodda"));
     CHECK(find(text,"protect") == string("prodecd"));
-    countCheck += 2;
+  
 }
 
 TEST_CASE("Test replacement of p and b && of o and u" )
@@ -97,7 +90,7 @@ TEST_CASE("Test replacement of p and b && of o and u" )
     CHECK(find(text,"my") == string("my"));
     CHECK(find(text,"beating") == string("beating"));
     CHECK(find(text,"heart") == string("heart"));
-    countCheck += 7;
+    
 }
 
 TEST_CASE("Test replacement all possible mistakes")
@@ -109,7 +102,7 @@ TEST_CASE("Test replacement all possible mistakes")
     CHECK(find(text,"this") == string("dHyz"));
     CHECK(find(text,"to") == string("du"));
     CHECK(find(text,"far") == string("pAR"));
-    countCheck += 6;
+    
 }
 
 TEST_CASE("Test replacement of t and d")
@@ -130,7 +123,6 @@ TEST_CASE("Test replacement of t and d")
     //check that a specific exception type is thrown
     CHECK_THROWS_AS(find(text,"leern"), exception); //the word not exist
 
-    countCheck += 11;
 }
 
 TEST_CASE("Test replacement of o and u && v and w")
@@ -154,7 +146,6 @@ TEST_CASE("Test replacement of o and u && v and w")
     //check that a specific exception type is thrown
     CHECK_THROWS_AS(find(text,"been"), exception); //the word not exist
 
-    countCheck += 14;
 }
 
 TEST_CASE("Test replacement all possible ")
@@ -176,7 +167,6 @@ TEST_CASE("Test replacement all possible ")
     //check that a specific exception type is thrown
     CHECK_THROWS_AS(find(text,"believed"), exception); //the word not exist
 
-    countCheck += 12;
 }
 
 TEST_CASE("Test replacement i any y ")
@@ -197,7 +187,6 @@ TEST_CASE("Test replacement i any y ")
     //check that a specific exception type is thrown
     CHECK_THROWS_AS(find(text,"any"), exception); //the word not exist
 
-    countCheck += 11;
 }
 
 TEST_CASE("Test replacement all possible mistakes")
@@ -215,6 +204,4 @@ TEST_CASE("Test replacement all possible mistakes")
     //check that a specific exception type is thrown
     CHECK_THROWS_AS(find(text,"anything"), exception); //the word not exist
 
-    countCheck += 8;
-    cout << "the number of test: " << countCheck << endl;
 }
