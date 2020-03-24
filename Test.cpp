@@ -1,5 +1,5 @@
 
-** // AUTHORS: <Ohad Cohen , Eden Dahari, Amit Elbaz>
+// AUTHORS: <Ohad Cohen , Eden Dahari, Amit Elbaz>
 
 #include <iostream>
 #include "PhoneticFinder.hpp"
