@@ -1,42 +1,48 @@
 
 // AUTHORS: <Ohad Cohen , Eden Dahari, Amit Elbaz>
 
-
-// AUTHORS: <Ohad Cohen , Eden Dahari, Amit Elbaz>
-
 #include <iostream>
+#include <ctype.h>
 #include "PhoneticFinder.hpp"
 
 using namespace std;
-
 namespace phonetic
 {//"dai lyke thys lead tu"
 string find(string text, string word)
 {
     string wordCheck = "";
-    for (size_t i = 0; i < text.length; i++)
+    int j = 0;
+    int save = 0;
+    for (size_t i = 0; i < text.length(); i++)
     {
-        if (text[i] == ' ')
+        if (i == text.length() - 1 || text[i] == ' ')
         {
-            wordCheck = substring(text,i);
-            if (wordCheck == word)
+            if(i == text.length() - 1 && text[i] != ' ')
             {
-               if(isSame(wordCheck, word) == 1) 
+                j++;
+            }
+            wordCheck = text.substr(save,j);
+            if (wordCheck.length() == word.length())
+            {
+               if(isSame((wordCheck), word) == 1) 
                {
-                   //good 
                    return wordCheck;
                }
             }
+            save = i + 1;
+            j = 0;
         }
-        
+        else
+        {
+            j++;
+        }
+
     }
-    
-    cout << "after fix" << endl;
-    return "ABC";
+    return NULL;
 }
 }
 
-string substring(string text, int i)
+string substring1(string text, int i)
 {
     string word_cut ="";
     for (size_t j = i+1; text[j] != ' '; j++)
@@ -48,32 +54,33 @@ string substring(string text, int i)
 
 int isSame(string wordCheck, string word)
 {
-    for (size_t i = 0; i < wordCheck.length;)
+    char letter[][3] = {{'a'},{'b','f','p'},{'c','k','q'},{'d','t'},{'e'},{'f','b','p'},{'g','j'}, {'h'}, {'i','y'}, {'j','g'}, {'k', 'c', 'q'}, {'l'}, {'m'}, {'n'}
+    , {'o','u'}, {'p','b','f'}, {'q','c','k'}, {'r'},{'s','z'}, {'t','d'}, {'u','o'}, {'v','w'}, {'w','v'},{'x'},{'y','i'}, {'z','s'}};
+    int match = 0;
+    for (size_t i = 0; i < wordCheck.length(); i++)
     {
-        if(wordCheck[i] == word[i])
-        {
-            i++;
-        }
-        else if (wordCheck[i] == 'v')
-        {
-            if (word[i] == 'w' || word[i] == 'W' )
-            {
-                i++;
-            }
-            
-        }
-        
-
+        wordCheck[i] = tolower(wordCheck[i]);
+        word[i] = tolower(word[i]);
+     if(wordCheck[i] != word[i])
+     {
+        int j = wordCheck[i] - 'a';
+         for (size_t x = 0; x < 3; x++)
+         {
+             if(letter[j][x] == word[i])
+             {
+                 match++;
+             }
+         }
+         
+     }
+     else
+     {
+        match++;
+     }   
     }
-    
-}
-
-int main()
-{
-    for (size_t i = 0; i < 3; i++)
+    if(match == word.length())
     {
-        cout<< "amit"<<endl;
+        return 1;
     }
-    
-    cout << substring("amit elbaz aaa" , 4) << endl;
+    return 0;
 }
