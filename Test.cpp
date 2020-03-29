@@ -21,8 +21,8 @@ TEST_CASE("Test replacement of y and i && of o and u" )
 
 TEST_CASE("Test replacement of y and i && f and p" )
 {
-    string text = "Feofole lyke uz"; //people like us
-    CHECK(find(text,"people") == string("Feofole"));
+    string text = "Feofle lyke uz"; //people like us
+    CHECK(find(text,"people") == string("Feofle"));
     CHECK(find(text,"like") == string("lyke"));
     CHECK(find(text,"us") == string("uz"));
 }
@@ -40,7 +40,7 @@ TEST_CASE("Test replacement of d and t && b and p")
 
 TEST_CASE("Test replacement of f and p and b && d and t && s and z" )
 {
-    string text = "Uffrond zdyle, reaty do addack now"; // upfront style, ready to attack now
+    string text = "Uffrond zdyle reaty do addack now"; // upfront style, ready to attack now
     CHECK(find(text,"upfront") == string("Uffrond")); 
     CHECK(find(text,"style") == string("zdyle"));
     CHECK(find(text,"ready") == string("reaty"));
@@ -85,7 +85,7 @@ TEST_CASE("Test replacement of t and d && of g and j" )
 
 TEST_CASE("Test replacement of p and b && of o and u" )
 {                  
-    string text = "// blace yuur head un my beating heart"; //Place your head on my beating heart
+    string text = "blace yuur head un my beating heart"; //Place your head on my beating heart
     CHECK(find(text,"Place") == string("blace"));
     CHECK(find(text,"your") == string("yuur"));
     CHECK(find(text,"head") == string("head"));
@@ -99,7 +99,7 @@ TEST_CASE("Test replacement of p and b && of o and u" )
 TEST_CASE("Test replacement all possible mistakes")
 {
     string text = "MAipE ve duuq dHyz du pAR "; //maybe we took this to far
-    CHECK(find(text,"mayby") == string("MAipE"));
+    CHECK(find(text,"maybe") == string("MAipE"));
     CHECK(find(text,"we") == string("ve"));
     CHECK(find(text,"took") == string("duuq"));
     CHECK(find(text,"this") == string("dHyz"));
@@ -156,7 +156,7 @@ TEST_CASE("Test replacement all possible ")
     string text = "I tund fELYEwE dhad ANifuti pEEl dHe Vai I tu"; //i dont believe that anybody feels the way i do
     CHECK(find(text,"i") == string("I"));
     CHECK(find(text,"dont") == string("tund"));
-    CHECK(find(text,"belive") == string("fELYEwE"));
+    CHECK(find(text,"believe") == string("fELYEwE"));
     CHECK(find(text,"that") == string("dhad"));
     CHECK(find(text,"anybody") == string("ANifuti"));
     CHECK(find(text,"feel") == string("pEEl"));

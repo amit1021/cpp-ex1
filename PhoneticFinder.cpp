@@ -41,17 +41,6 @@ string find(string text, string word)
     return NULL;
 }
 }
-
-string substring1(string text, int i)
-{
-    string word_cut ="";
-    for (size_t j = i+1; text[j] != ' '; j++)
-    {
-        word_cut += text[j];
-    }
-    return word_cut;
-}
-
 int isSame(string wordCheck, string word)
 {
     char letter[][3] = {{'a'},{'b','f','p'},{'c','k','q'},{'d','t'},{'e'},{'f','b','p'},{'g','j'}, {'h'}, {'i','y'}, {'j','g'}, {'k', 'c', 'q'}, {'l'}, {'m'}, {'n'}
